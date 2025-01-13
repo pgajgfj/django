@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Підтвердження видалення</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 50%;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        p {
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .confirm-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .confirm {
+            background-color: #ff4d4d;
+            color: white;
+        }
+
+        .cancel {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .confirm:hover {
+            background-color: #ff3333;
+        }
+
+        .cancel:hover {
+            background-color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Ви впевнені, що хочете видалити цей фільм?</h1>
+        <p>{{ movie.title }}</p>
+        <div class="confirm-buttons">
+            <form method="post" action="{% url 'movie_delete' movie.id %}">
+                {% csrf_token %}
+                <button class="confirm" type="submit">Так, видалити</button>
+            </form>
+            <a href="{% url 'movie_list' %}">
+                <button class="cancel">Скасувати</button>
+            </a>
+        </div>
+    </div>
+
+</body>
+
+</html>

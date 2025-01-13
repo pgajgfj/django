@@ -1,0 +1,20 @@
+[
+    {
+        "model": "usersmovies.movie",
+        "pk": 1,
+        "fields": {
+            "title": "Фільм 1",
+            "description": "Це опис першого фільму.",
+            "release_date": "2023-01-01"
+        }
+    },
+    {
+        "model": "usersmovies.movie",
+        "pk": 2,
+        "fields": {
+            "title": "Фільм 2",
+            "description": "Це опис другого фільму.",
+            "release_date": "2023-02-01"
+        }
+    }
+]
